@@ -18,6 +18,8 @@ jobs:
       - name: Build it bob
         run: npm run build
       - name: Deploy it
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
-          git remote set-url origin https://git:${{secrets.GITHUB_TOKEN }}@github.com/plant-object-website.git
-          npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
