@@ -1,11 +1,11 @@
 {
-  "name": "plant-object-website",
+  "name": "plant-collection-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/plant-object-website/",
+    "build": "tsc && vite build --base=/plant-collection-website/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
