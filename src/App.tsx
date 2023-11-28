@@ -19,12 +19,13 @@ const App = () => {
   return (
     <>
       <div>WORK IN PROGRESS</div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input
           type="file"
           name="image"
           accept="image/png, image/jpg, image/bmp, image/webp"
         />
+        <input type="text" name="test" />
         <input type="submit" value="Submit" />
       </form>
     </>
