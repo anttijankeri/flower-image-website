@@ -98,6 +98,8 @@ const App = () => {
   return (
     <>
       <div>WORK IN PROGRESS</div>
+      <hr />
+
       <form onSubmit={addImage} encType="multipart/form-data">
         <input
           type="file"
@@ -110,16 +112,22 @@ const App = () => {
         <input type="checkbox" name="shared" />
         <input type="submit" value="Submit" />
       </form>
+      <hr />
+
       <form onSubmit={login}>
         <input type="text" name="email" placeholder="email" />
         <input type="text" name="password" placeholder="password" />
         <input type="submit" value="Submit" />
       </form>
+      <hr />
+
       <form onSubmit={signUp}>
         <input type="text" name="email" placeholder="email" />
         <input type="text" name="password" placeholder="userText" />
         <input type="submit" value="Submit" />
       </form>
+      <hr />
+
       <form onSubmit={addObject}>
         <input type="text" name="genusName" placeholder="genusName" />
         <input type="text" name="speciesName" placeholder="speciesName" />
