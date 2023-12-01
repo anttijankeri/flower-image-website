@@ -101,6 +101,7 @@ const App = () => {
       <hr />
 
       <form onSubmit={addImage} encType="multipart/form-data">
+        image
         <input
           type="file"
           name="image"
@@ -115,6 +116,7 @@ const App = () => {
       <hr />
 
       <form onSubmit={login}>
+        log in
         <input type="text" name="email" placeholder="email" />
         <input type="text" name="password" placeholder="password" />
         <input type="submit" value="Submit" />
@@ -122,13 +124,15 @@ const App = () => {
       <hr />
 
       <form onSubmit={signUp}>
+        sign up
         <input type="text" name="email" placeholder="email" />
-        <input type="text" name="password" placeholder="userText" />
+        <input type="text" name="password" placeholder="password" />
         <input type="submit" value="Submit" />
       </form>
       <hr />
 
       <form onSubmit={addObject}>
+        object
         <input type="text" name="genusName" placeholder="genusName" />
         <input type="text" name="speciesName" placeholder="speciesName" />
         <input type="text" name="commonName" placeholder="commonName" />
@@ -145,10 +149,8 @@ const App = () => {
         <input type="text" name="purchasePrice" placeholder="purchasePrice" />
         <input type="text" name="salePrice" placeholder="salePrice" />
         <input type="text" name="collectionTag" placeholder="collectionTag" />
-
         <input type="checkbox" name="forSale" />
         <input type="checkbox" name="shared" />
-
         <input type="number" name="dateAcquired" />
         <input type="number" name="dateFirstFlower" />
         <input type="number" name="dateLastFlower" />
