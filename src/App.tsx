@@ -1,10 +1,36 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import "./App.css";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import Profile from "./components/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
+  const { user, getAccessTokenSilently } = useAuth0();
+  const [userToken, setUserToken] = useState("");
+
+  useEffect(() => {
+    const getUserToken = async () => {
+      if (user) {
+        const domain = "dev-psenso4mglnfpj8o.eu.auth0.com";
+
+        try {
+          const accessToken = await getAccessTokenSilently({
+            authorizationParams: {
+              audience: `https://${domain}/api/v2/`,
+              scope: "read:current_user",
+            },
+          });
+          setUserToken(accessToken);
+        } catch (error) {
+          console.log((error as Error).message);
+        }
+      }
+    };
+
+    getUserToken();
+  }, [getAccessTokenSilently, user]);
+
   const addImage = async (event: FormEvent) => {
     event.preventDefault();
     try {
@@ -14,9 +40,13 @@ const App = () => {
       const shared = target.shared.value === "on" ? "true" : "";
       data.set("shared", shared);
 
-      const result = await fetch("http://localhost:3456/api/v1/images", {
+      const result = await fetch(`http://localhost:3456/api/v1/images`, {
         method: "POST",
         body: data,
+        headers: {
+          authorization: `Bearer ${userToken}`,
+          "x-user-id": user?.sub as string,
+        },
       });
       console.log(result);
     } catch (error) {
@@ -48,6 +78,8 @@ const App = () => {
         body: JSON.stringify(object),
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${userToken}`,
+          "x-user-id": user?.sub as string,
         },
       });
       console.log(result);
