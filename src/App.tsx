@@ -1,5 +1,8 @@
 import { FormEvent } from "react";
 import "./App.css";
+import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
+import Profile from "./components/Profile";
 
 const App = () => {
   const addImage = async (event: FormEvent) => {
@@ -53,48 +56,6 @@ const App = () => {
     }
   };
 
-  const login = async (event: FormEvent) => {
-    event.preventDefault();
-    try {
-      const target = event.target as HTMLFormElement;
-      const data = new FormData(target);
-
-      const object = JSON.stringify(Object.fromEntries(data));
-
-      const result = await fetch("http://localhost:3456/api/v1/auth/login", {
-        method: "POST",
-        body: object,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const signUp = async (event: FormEvent) => {
-    event.preventDefault();
-    try {
-      const target = event.target as HTMLFormElement;
-      const data = new FormData(target);
-
-      const object = JSON.stringify(Object.fromEntries(data));
-
-      const result = await fetch("http://localhost:3456/api/v1/auth/signup", {
-        method: "POST",
-        body: object,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <>
       <div>WORK IN PROGRESS</div>
@@ -111,22 +72,6 @@ const App = () => {
         <input type="text" name="userGroup" placeholder="userGroup" />
         <input type="text" name="objectLink" placeholder="objectLink" />
         <input type="checkbox" name="shared" />
-        <input type="submit" value="Submit" />
-      </form>
-      <hr />
-
-      <form onSubmit={login}>
-        log in
-        <input type="text" name="email" placeholder="email" />
-        <input type="text" name="password" placeholder="password" />
-        <input type="submit" value="Submit" />
-      </form>
-      <hr />
-
-      <form onSubmit={signUp}>
-        sign up
-        <input type="text" name="email" placeholder="email" />
-        <input type="text" name="password" placeholder="password" />
         <input type="submit" value="Submit" />
       </form>
       <hr />
@@ -157,6 +102,9 @@ const App = () => {
         <input type="number" name="dateRemoved" />
         <input type="submit" value="Submit" />
       </form>
+      <LoginButton />
+      <LogoutButton />
+      <Profile />
     </>
   );
 };
