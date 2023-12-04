@@ -45,7 +45,6 @@ const App = () => {
         body: data,
         headers: {
           authorization: `Bearer ${userToken}`,
-          "x-user-id": user?.sub as string,
         },
       });
       console.log(result);
@@ -79,7 +78,6 @@ const App = () => {
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${userToken}`,
-          "x-user-id": user?.sub as string,
         },
       });
       console.log(result);
