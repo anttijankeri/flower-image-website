@@ -31,6 +31,27 @@ const App = () => {
     getUserToken();
   }, [getAccessTokenSilently, user]);
 
+  const getImage = async (event: FormEvent) => {
+    event.preventDefault();
+    try {
+      const target = event.target as HTMLFormElement;
+
+      const id = target.imageId.value;
+
+      const result = await fetch(
+        `http://localhost:3456/api/v1/images/file/${id}`,
+        {
+          headers: {
+            authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const addImage = async (event: FormEvent) => {
     event.preventDefault();
     try {
@@ -90,9 +111,15 @@ const App = () => {
     <>
       <div>WORK IN PROGRESS</div>
       <hr />
+      <form onSubmit={getImage}>
+        get image
+        <input type="text" name="imageId" placeholder="imageId" />
+        <input type="submit" value="Submit" />
+      </form>
+      <hr />
 
       <form onSubmit={addImage} encType="multipart/form-data">
-        image
+        post image
         <input
           type="file"
           name="image"
