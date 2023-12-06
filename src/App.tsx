@@ -2,7 +2,6 @@ import { FormEvent, useEffect, useState } from "react";
 import "./App.css";
 import LoginButton from "./components/Auth0/LoginButton";
 import LogoutButton from "./components/Auth0/LogoutButton";
-import Profile from "./components/Auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
@@ -165,7 +164,6 @@ const App = () => {
       </form>
       <LoginButton />
       <LogoutButton />
-      <Profile />
     </>
   );
 };

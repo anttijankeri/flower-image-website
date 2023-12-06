@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import AuthProvider from "./AuthProvider";
+import AuthProvider from "./components/Auth0/AuthProvider";
 import App from "./App";
 import "./index.css";
 
