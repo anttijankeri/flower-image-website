@@ -4,6 +4,10 @@ This project is a website for both desktop and mobile. It should use the [anttij
 
 The coding language is **Typescript** and the website uses **React**
 
+## SETUP
+
+Rename the .env.example file into .env and change all the variables into the ones you have. You will also need to setup an Auth0 app for React/Single page application and follow their guide to get the service running. The Auth App and API should be under the same domain.
+
 ## Plant data to save:
 
 Strings:

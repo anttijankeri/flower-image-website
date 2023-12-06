@@ -1,8 +1,8 @@
 import { FormEvent, useEffect, useState } from "react";
 import "./App.css";
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
-import Profile from "./components/Profile";
+import LoginButton from "./components/Auth0/LoginButton";
+import LogoutButton from "./components/Auth0/LogoutButton";
+import Profile from "./components/Auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
@@ -12,12 +12,10 @@ const App = () => {
   useEffect(() => {
     const getUserToken = async () => {
       if (user) {
-        const domain = "dev-psenso4mglnfpj8o.eu.auth0.com";
-
         try {
           const accessToken = await getAccessTokenSilently({
             authorizationParams: {
-              audience: `https://${domain}/api/v2/`,
+              audience: import.meta.env.VITE_REACT_APP_AUTH0_APP + "/api/v2/",
               scope: "read:current_user",
             },
           });
@@ -39,7 +37,7 @@ const App = () => {
       const id = target.imageId.value;
 
       const result = await fetch(
-        `http://localhost:3456/api/v1/images/file/${id}`,
+        import.meta.env.VITE_REACT_APP_API_BASE_URL + `/images/file/${id}`,
         {
           headers: {
             authorization: `Bearer ${userToken}`,
@@ -61,13 +59,16 @@ const App = () => {
       const shared = target.shared.value === "on" ? "true" : "";
       data.set("shared", shared);
 
-      const result = await fetch(`http://localhost:3456/api/v1/images`, {
-        method: "POST",
-        body: data,
-        headers: {
-          authorization: `Bearer ${userToken}`,
-        },
-      });
+      const result = await fetch(
+        import.meta.env.VITE_REACT_APP_API_BASE_URL + `/images`,
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -93,14 +94,17 @@ const App = () => {
       object.dateRemoved = Number(object.dateRemoved);
       object.events = [];
 
-      const result = await fetch("http://localhost:3456/api/v1/objects", {
-        method: "POST",
-        body: JSON.stringify(object),
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${userToken}`,
-        },
-      });
+      const result = await fetch(
+        import.meta.env.VITE_REACT_APP_API_BASE_URL + "/objects",
+        {
+          method: "POST",
+          body: JSON.stringify(object),
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
       console.log(result);
     } catch (error) {
       console.log(error);
