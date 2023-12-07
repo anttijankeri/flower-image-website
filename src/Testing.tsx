@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Testing = () => {
   const { user, getAccessTokenSilently } = useAuth0();
   const [userToken, setUserToken] = useState("");
+  const [image, setImage] = useState<string>();
 
   useEffect(() => {
     const getUserToken = async () => {
@@ -42,7 +43,10 @@ const Testing = () => {
           },
         }
       );
-      console.log(result);
+
+      const image = await result.blob();
+
+      setImage(URL.createObjectURL(image));
     } catch (error) {
       console.log(error);
     }
@@ -163,6 +167,7 @@ const Testing = () => {
       </form>
       <LoginButton />
       <LogoutButton />
+      <img src={image} />
     </>
   );
 };
