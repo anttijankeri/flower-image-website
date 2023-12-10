@@ -1,5 +1,15 @@
+import ProfileData from "../components/Auth0/ProfileData";
+import Header from "../components/Header/Header";
+
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <>
+      <Header />
+      <body>
+        <ProfileData />
+      </body>
+    </>
+  );
 };
 
 export default Profile;

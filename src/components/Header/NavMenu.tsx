@@ -1,5 +1,15 @@
+import NavButton from "./NavButton";
+
 const NavMenu = () => {
-  return <div>NavMenu</div>;
+  return (
+    <div>
+      <NavButton />
+      <NavButton />
+      <NavButton />
+      <NavButton />
+      <NavButton />
+    </div>
+  );
 };
 
 export default NavMenu;

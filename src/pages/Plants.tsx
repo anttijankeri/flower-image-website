@@ -1,15 +1,15 @@
 import Header from "../components/Header/Header";
-import PlantData from "../components/Plants/PlantData";
+import PlantList from "../components/Plants/PlantList";
 
-const AddPlant = () => {
+const Plants = () => {
   return (
     <>
       <Header />
       <body>
-        <PlantData />
+        <PlantList />
       </body>
     </>
   );
 };
 
-export default AddPlant;
+export default Plants;

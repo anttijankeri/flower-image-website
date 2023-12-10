@@ -1,5 +1,17 @@
+import Title from "../components/Header/Title";
+import MenuButton from "../components/Misc/MenuButton";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <header>
+        <Title />
+      </header>
+      <body>
+        <MenuButton />
+      </body>
+    </>
+  );
 };
 
 export default Home;

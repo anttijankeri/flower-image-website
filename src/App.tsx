@@ -15,20 +15,22 @@ import AddPlant from "./pages/AddPlant";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" Component={Home}></Route>
-      <Route path="/menu" Component={Menu}></Route>
-      <Route path="/plantlist" Component={PlantList}></Route>
-      <Route path="/plantgroups" Component={PlantGroups}></Route>
-      <Route path="/plant" Component={PlantDetails}></Route>
-      <Route path="/plantimages" Component={PlantImages}></Route>
-      <Route path="/imagelist" Component={ImageList}></Route>
-      <Route path="/imagegroups" Component={ImageGroups}></Route>
-      <Route path="/image" Component={ImageDetails}></Route>
-      <Route path="/addimage" Component={AddImage}></Route>
-      <Route path="/addplant" Component={AddPlant}></Route>
-      <Route path="/profile" Component={Profile}></Route>
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" Component={Home}></Route>
+        <Route path="/menu" Component={Menu}></Route>
+        <Route path="/plantlist" Component={PlantList}></Route>
+        <Route path="/plantgroups" Component={PlantGroups}></Route>
+        <Route path="/plant" Component={PlantDetails}></Route>
+        <Route path="/plantimages" Component={PlantImages}></Route>
+        <Route path="/imagelist" Component={ImageList}></Route>
+        <Route path="/imagegroups" Component={ImageGroups}></Route>
+        <Route path="/image" Component={ImageDetails}></Route>
+        <Route path="/addimage" Component={AddImage}></Route>
+        <Route path="/addplant" Component={AddPlant}></Route>
+        <Route path="/profile" Component={Profile}></Route>
+      </Routes>
+    </div>
   );
 };
 

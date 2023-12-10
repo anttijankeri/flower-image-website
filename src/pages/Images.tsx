@@ -1,15 +1,15 @@
 import Header from "../components/Header/Header";
-import PlantData from "../components/Plants/PlantData";
+import ImageList from "../components/Images/ImageList";
 
-const AddPlant = () => {
+const Images = () => {
   return (
     <>
       <Header />
       <body>
-        <PlantData />
+        <ImageList />
       </body>
     </>
   );
 };
 
-export default AddPlant;
+export default Images;
