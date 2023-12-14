@@ -1,5 +1,5 @@
+import LoginButton from "../components/Auth0/LoginButton";
 import Title from "../components/Header/Title";
-import MenuButton from "../components/Misc/MenuButton";
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
         <Title />
       </header>
       <body>
-        <MenuButton />
+        <LoginButton />
       </body>
     </>
   );

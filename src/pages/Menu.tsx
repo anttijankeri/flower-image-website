@@ -1,3 +1,4 @@
+import LogoutButton from "../components/Auth0/LogoutButton";
 import Title from "../components/Header/Title";
 import MenuButton from "../components/Misc/MenuButton";
 
@@ -8,11 +9,12 @@ const Menu = () => {
         <Title />
       </header>
       <body>
-        <MenuButton />
-        <MenuButton />
-        <MenuButton />
-        <MenuButton />
-        <MenuButton />
+        <MenuButton text="Add Plant" link="/addplant" />
+        <MenuButton text="Add Image" link="/addimage" />
+        <MenuButton text="Plants" link="/plantlist" />
+        <MenuButton text="Images" link="/imagelist" />
+        <MenuButton text="Profile" link="/profile" />
+        <LogoutButton />
       </body>
     </>
   );
